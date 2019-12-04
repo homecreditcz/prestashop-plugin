@@ -191,7 +191,7 @@ class Tools
           \MlcConfig::isModuleConfigured() &&
           self::productHasMinimalPrice($productPrice) &&
           self::shopHasAllowedCurrency() &&
-          in_array(\Tools::getValue('controller'), ['product', 'order', 'payment']);
+          in_array(\Tools::getValue('controller'), ['product', 'order', 'orderopc', 'payment']);
     }
 
     /**
