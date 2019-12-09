@@ -346,30 +346,30 @@ class MyLoanConnector extends PaymentModule
             return false;
         }
 
-        $this->context->controller->addCSS(dirname(__FILE__) . "/views/css/myloan.css");
-        $this->context->controller->addJS(dirname(__FILE__) . "/views/js/jquery.cookie.js");
+        $this->context->controller->addCSS($this->_path . "/views/css/myloan.css");
+        $this->context->controller->addJS($this->_path . "/views/js/jquery.cookie.js");
 
 
         switch (MlcConfig::get(MlcConfig::API_COUNTRY)) {
             case MlcConfig::CZ_VERSION:
             case MlcConfig::CZ_TEST_VERSION:
                 $this->context->controller->addCSS(
-                  __DIR__ . "/vendor/homecredit/widget-calculator-cz/hc-calc/style/style.css"
+                  $this->_path . "/vendor/homecredit/widget-calculator-cz/hc-calc/style/style.css"
                 );
                 $this->context->controller->addJS(
-                  __DIR__ . "/vendor/homecredit/widget-calculator-cz/hc-calc/js/resize.js"
+                  $this->_path . "/vendor/homecredit/widget-calculator-cz/hc-calc/js/resize.js"
                 );
-                $this->context->controller->addJS(dirname(__FILE__) . "/views/js/appLoader-cz.js");
+                $this->context->controller->addJS($this->_path . "/views/js/appLoader-cz.js");
                 break;
             case MlcConfig::SK_VERSION:
             case MlcConfig::SK_TEST_VERSION:
                 $this->context->controller->addCSS(
-                  __DIR__ . "/vendor/homecredit/widget-calculator-sk/hc-calc/style/style.css"
+                  $this->_path . "/vendor/homecredit/widget-calculator-sk/hc-calc/style/style.css"
                 );
                 $this->context->controller->addJS(
-                  __DIR__ . "/vendor/homecredit/widget-calculator-sk/hc-calc/js/resize.js"
+                  $this->_path . "/vendor/homecredit/widget-calculator-sk/hc-calc/js/resize.js"
                 );
-                $this->context->controller->addJS(dirname(__FILE__) . "/views/js/appLoader-sk.js");
+                $this->context->controller->addJS($this->_path . "/views/js/appLoader-sk.js");
         }
     }
 
