@@ -80,7 +80,7 @@ function hcCalcloaded(productSetCode, price, downPayment, fixDownPayment, dataCa
   body.appendChild(wrapper);
 
   // Definovat cestu k modulu
-  var path = 'modules/myloanconnector/vendor/homecredit/widget-calculator-sk/';
+  var path = '/modules/myloanconnector/vendor/homecredit/widget-calculator-sk/';
 
   var script = doc.createElement('script');
   script.charset = 'UTF-8';
