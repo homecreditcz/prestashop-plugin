@@ -1,0 +1,21 @@
+{
+    "name": "homecreditcz/hc-api",
+    "description": "HomeCredit api library.",
+    "type": "library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Jan Truhlar",
+            "email": "me@jant.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "ext-json": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}

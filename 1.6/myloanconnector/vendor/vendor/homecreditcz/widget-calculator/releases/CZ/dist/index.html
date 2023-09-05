@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fake shop for hc-calculator</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="hc-calc/style/style.css">
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but hc-calculator doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+
+    <div class="content-wrapper" style="max-width:1000px; margin:0 auto;">
+      <div class="content-header">
+        <h1>Fake shop <small>calculator widget example</small></h1>
+      </div>
+      <div class="content">
+        <div class="box box-default">
+          <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                      <label>Calculator Api Url</label>
+                      <input type="text" id="dataCalculatorBaseUrl" value="https://apicz-test.homecredit.net/verdun-train/public/v1/calculator/" class="form-control" />
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                    <label>Api Key</label>
+                    <input type="text" id="apikey" value="calculator_test_key" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Product Set</label>
+                  <input type="text" id="productSet" value="COCHCONL" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Price (minor Units)</label>
+                  <input type="text" id="price" value="140000" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Down Payment (minor Units)</label>
+                  <input type="text" id="downPayment" value="30000" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Fix Down Payment</label>
+                  <input type="checkbox" id="fixDownPayment" value="false" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer clearfix no-border">
+            <button type="button" class="btn" onclick="showCalc()">Open Modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hc-calc-container">
+      <div id="hc-calc-modal" class="hc-modal" role="dialog" style="display: none">
+        <div class="hc-modal__dialog">
+          <div class="hc-modal__content">
+            <div id="hc-modal-header" class="hc-modal__header">
+              <a id="hc-close-button" href="JavaScript:void(0);" class="hc-modal__close" onclick="document.getElementById('hc-calc-modal').style.display = 'none'"></a>
+              <div class="hc-modal__logo">
+                <img src="hc-calc/img/logo.svg" alt="logo" />
+              </div>
+              <div class="hc-modal__title">NÁKUP NA SPLÁTKY</div>
+            </div>
+            <div id="hc-calculator-wrapper" class="hc-modal__body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showCalc() {
+        var productSetCode = document.getElementById('productSet').value;
+        var price = document.getElementById('price').value;
+        var downPayment = document.getElementById('downPayment').value;
+        var dataCalculatorBaseUrl = document.getElementById('dataCalculatorBaseUrl').value;
+        var apiKey = document.getElementById('apikey').value;
+        var fixDownPayment = document.getElementById('fixDownPayment').checked;
+        showHcCalc(productSetCode, price, downPayment, fixDownPayment, dataCalculatorBaseUrl, apiKey, processCalcResult);
+      }
+
+      function processCalcResult(calcResult) {
+        console.log(calcResult);
+      }
+    </script>
+
+    <script src="hc-calc/js/resize.js"></script>
+    <script src="hc-calc/js/appLoader.js"></script>
+  </body>
+</html>
